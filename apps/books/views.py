@@ -4,8 +4,6 @@ from django.shortcuts import render
 from apps.books.mixins import BookViewSetMixin, AuthorViewSetMixin, GenreViewSetMixin
 from apps.books.models import Book, Author, Genre
 from apps.books.serializers import BookSerializer, AuthorSerializer, GenreSerializer
-from config.pagination import SimpleCursorPagination, SimplePageNumberPagination
-
 
 
 # Create your views here.
