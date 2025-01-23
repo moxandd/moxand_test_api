@@ -1,13 +1,16 @@
 # Django API Project
+
 ## Описание
 
 ## Этот проект — API для управления книгами, авторами и жанрами, разработанный с использованием Django и Django REST Framework (DRF). API предоставляет возможность создавать, читать, обновлять и удалять книги, авторов и жанры.
+
 Структура проекта
-    Books: Управление книгами.
-    Authors: Управление авторами книг.
-    Genres: Управление жанрами книг.
+Books: Управление книгами.
+Authors: Управление авторами книг.
+Genres: Управление жанрами книг.
 
 ## Требования
+
     asgiref==3.8.1
     Django==5.1.5
     django-rest-framework==0.1.0
@@ -16,23 +19,26 @@
     tzdata==2025.1
 
 # Установка
+
 ## 1. Клонировать репозиторий
 
 git clone https://github.com/yourusername/your-django-api-project.git
 cd moxand_test_api
 
-## 2. Создание виртуального окружения 
+## 2. Создание виртуального окружения Linux/Windows
+
 python -m venv venv
-source venv/bin/activate  # Для Linux/MacOS
-venv\Scripts\activate  # Для Windows
+source venv/bin/activate  
+venv\Scripts\activate
 
 ## 3. Установка зависимостей
+
 pip install -r requirements.txt
 
-
 ## 4. Настройка базы данных и создание admin ()
- python manage.py migrate
- python manage.py createsuperuser -> username/password
+
+python manage.py migrate
+python manage.py createsuperuser -> username/password
 
 ## 5. Запуск серверa разработки
 
@@ -73,17 +79,17 @@ curl -X GET http://127.0.0.1:8000/api/books/
 Пример ответа:
 
 {
-  "next": null,
-  "previous": null,
-  "data": [
-    {
-      "id": 1,
-      "title": "Harry Potter and the Philosopher's Stone",
-      "author": 1,
-      "genre": 1,
-      "creation_year": 1997
-    }
-  ]
+"next": null,
+"previous": null,
+"data": [
+{
+"id": 1,
+"title": "Harry Potter and the Philosopher's Stone",
+"author": 1,
+"genre": 1,
+"creation_year": 1997
+}
+]
 }
 
 Создание книги
@@ -93,15 +99,16 @@ curl -X GET http://127.0.0.1:8000/api/books/
 curl -X POST http://127.0.0.1:8000/api/books/ \
 -H "Content-Type: application/json" \
 -d '{
-    "title": "Harry Potter and the Chamber of Secrets",
-    "author": 1,
-    "genre": 1,
-    "creation_year": 1998
+"title": "Harry Potter and the Chamber of Secrets",
+"author": 1,
+"genre": 1,
+"creation_year": 1998
 }'
 
 ## Тестирование
+
 1. Запуск тестов
 
 Для запуска тестов используйте команду:
 
-python manage.py test
+python manage.py test apps.books.tests.test_books_api
